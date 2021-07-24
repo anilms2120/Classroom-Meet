@@ -1,0 +1,65 @@
+{% extends 'main/header.html'%}
+{% block content%}
+	
+	<div class="card" style="width:500px; margin-left: auto;margin-right: auto; margin-top: 30px;">
+		<h3 class="card-header text-center">Profile</h3>
+		<div class="card-body" >
+
+			
+			<form  method='POST' action="" id="form">
+				{% csrf_token %}
+			  <div class="form-group">
+			  	<label for='username' style="font-weight: bold;" >Name</label>
+			    <input type="text" name='name_form' class="form-control" id="username" aria-describedby="emailHelp" placeholder="Name" value={{ user.name }}>
+			  </div>
+			   <div class="form-group">
+			  	<label for='email' style="font-weight: bold;" >Email</label>
+			    <input type="text" name='email_form' class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" value={{ user.email }}>
+			  </div>
+			  <div class="form-group">
+			  	<label for='department' style="font-weight: bold;" >Department</label>
+			    <input type="text" name='department_form' class="form-control" id="department" aria-describedby="emailHelp" placeholder="Department" value={{ user.department }}>
+			  </div>
+			  <div class="form-group">
+			  	<label for='phone' style="font-weight: bold;" >Phone</label>
+			    <input type="text" name='phone_form' class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Phone" value={{ user.phone }}>
+			  </div>
+			  <button  style="margin-top:20px; background-color: #696969;border:none; width:30%; margin-left: 150px; font-weight: bold;" type="submit" class="btn btn-primary" form="form">Submit</button>
+			</form>
+			
+			
+		</div>
+	</div>
+{% endblock %}
+	
+ <!-- <form method='POST' action="">
+				
+						{% csrf_token %}
+						{% if not count%}
+							<ul>
+								<li> <label for="username" >Name</label></li>
+								<li> <input id="username" type="text" name="name_form" value={{ user.name }}></li>
+								<li> <label for="email">Email</label></li>
+								<li> <input id="email" type="email" name='email_form' value={{ user.email}}></li>
+								<li> <label for="Department" >Department</label></li>
+								<li> <input id="Department" type="text" value={{ user.department}} name="department_form"></li>
+								<li> <label for="Phone">Phone</label></li>
+								<li> <input id="Phone" type="number" value={{ user.phone}} name='phone_form'></li>								
+								<li> <label for="sem">Sem</label></li>
+								<li> <input id="sem" type="text" value={{ user.sem }} name='sem_form'></li>
+							</ul>
+						{% else %}
+							<ul>
+								<li> <label for="username" >Name</label></li>
+								<li> <input id="username" type="text" name="name_form" value={{ user.name }}></li>
+								<li> <label for="email">Email</label></li>
+								<li> <input id="email" type="email" name='email_form' value={{ user.email}}></li>
+								<li> <label for="Department" >Department</label></li>
+								<li> <input id="Department" type="text" value={{ user.department}} name="department_form"></li>
+								<li> <label for="Phone">Phone</label></li>
+								<li> <input id="Phone" type="number" value={{ user.phone}} name='phone_form'></li>
+							</ul>
+						{% endif %}
+
+						<input type="submit"  class ="btn btn-info" value="Submit">
+					</form> -->

@@ -1,0 +1,66 @@
+{% extends 'main/header.html'%}
+{% block content %}
+
+	
+	<h3 class="text-center" style="margin-top:30px;">{{ class }}</h3>
+
+	<section>
+			<div class="container" style="margin-top: 20px;">
+				<div class="row">
+					<div class="col" style="margin-top: 20px; width:70%; margin-right: auto; margin-left: auto;">
+						
+						
+				</div>
+		
+				<div class="col-6" >
+					<div class="container" >
+						{% for i in article %}
+
+									<div class="card" style="margin-top: 20px; width:97%; margin-right: 50px; margin-left: auto;">
+									  <h5  class="card-header" style="background-color: #696969; color:white">{{ i.title }}</h5>
+									  <div class="card-body">
+									  	<h5  class="mb-1">{{ i.group }}</h5>
+									    <a  href="{% url 'view_teacher' i.id %}"><h6 class="card-title">{{ i.teacher.name }}                      {{i.date_created}}</h6></a>
+									    <p class="card-text">{{ i.description }}</p>
+									   
+									  </div>
+									</div>
+						{% endfor %}
+						
+					</div>
+
+				</div>
+				<div class="col" >
+					<div class="container" style="margin-top: 20px;" >
+						
+						<div class="list-group" >
+
+						  {% for i in assignment %}
+						 
+							  	
+								  	<a  href="{% url 'student_assignment' i.id %}" class="list-group-item list-group-item-action flex-column align-items-start" >
+									    
+									    {% if i in arr %}
+									    	<h5 class="mb-1">{{ i.group }}<div id="tick-mark"></div></h5>
+									    {% else %}
+									    	<h5 class="mb-1">{{ i.group }}</h5>
+									    {% endif %}
+									      <h5  class="mb-1">{{ i.title }}</h5>
+									      <small class="text-muted">Due : {{i.due_date}}</small>
+									  </a>
+								
+							
+						  {% endfor %}
+						 
+						  
+						
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+		</div>
+		
+	</section>
+{% endblock %}

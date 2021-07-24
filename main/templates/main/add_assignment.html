@@ -1,0 +1,32 @@
+{% extends 'main/header.html'%}
+{% block content%}
+	
+	<div class="card" style="width:500px; margin-left: auto;margin-right: auto; margin-top: 30px;">
+		<h3 class="card-header text-center">Assignment</h3>
+		<div class="card-body" >
+
+			
+			<form  method='POST' action="" id="form">
+				{% csrf_token %}
+			  <div class="form-group">
+			  	<label for='title' style="font-weight: bold;" >Title</label>
+			    <input type="text" name='title_form' class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter Title" value={{ prefilled.title }}>
+			  </div>
+			  <div class="form-group">
+			  	<label for="due_date" style="font-weight: bold; margin-right: 10px;"  >Due Date</label>
+			    <input type="date" name='date_form' value={{ prefilled.due_date }} class="form-control" id="due_date" placeholder="due_date">
+			  </div>
+			</form>
+			<label for='ta' style="font-weight: bold;" >Description</label>
+			<textarea  id ='ta'rows="4" cols="50"   class="form-control" name="description" placeholder="Description" form="form" >{{ prefilled.description }}</textarea>
+			<br>
+			<select id="class" name="class"  class="form-control"  form="form" placeholder="Class">
+				<option value="" disabled selected>Class</option>
+					{% for i in all_classes %}
+						<option value = {{i.name}}>{{i.name}}</option>
+					{% endfor %}
+			</select>
+			<button  style="margin-top:20px; background-color: #696969;border:none; width:30%; margin-left: 150px; font-weight: bold;" type="submit" class="btn btn-primary" form="form">Submit</button>
+		</div>
+	</div>
+{% endblock %}

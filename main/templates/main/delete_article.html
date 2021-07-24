@@ -1,0 +1,26 @@
+{% extends 'main/header.html '%}
+
+{% block content %}
+
+
+<div class="row">
+	<div class="col l6 s12">
+		<div class="card card-body">
+			<div class="card-content">
+				
+				
+				<form action="" method='POST'>
+					{% csrf_token %}
+					<p><strong>Are you sure you want to delete item {{ order.product.name }}?</strong></p><br>
+					<a class="btn btn-warning" style="background-color: yellow; color:black;"href="{% url 'home' %}">Cancel</a>
+					<input  class="btn btn-danger" style="background-color: red;color: black;" type="submit" value="delete">
+				</form>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

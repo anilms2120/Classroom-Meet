@@ -1,0 +1,38 @@
+
+{% extends 'main/header.html'%}
+{% block content %}
+	
+	<div class="container" style="margin-top: 20px; width: 60%; margin-left: auto; margin-right: auto;">
+		
+		<form id="myform" action="" method='POST' enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="card">
+			  <div class="card-body">
+			    <h3 class="text-center">{{ assignment.title }}</h3>
+			    <br>
+			    <p  style="font-size: 20px;" class="text-center">{{ assignment.description }}</p>
+			    <br>
+			    <h4 class="text-center">{{ assignment.teacher}} {{ assignment.date_created}}</h4>
+			    <br>
+			    <h4 class="text-center">Due Date - {{ assignment.due_date }}</h4>
+				<div class="container" style="width:70%; margin-left: 305px;margin-right: auto">
+				    <label for="file" class="text-center" style="font-size: 20px; margin-top: 20px;  font-weight: bold;">Document</label>
+				    <br>
+				    <input  id="file" name="file_form" style="margin-top: 10px;" type="file"/>
+				    <br>
+				    <button  type="button" style="width:100px; margin-top: 20px;" onclick='myfunc()'>Submit</button>
+			   </div>
+			  </div>
+			</div>
+		</form>
+	</div>
+	<script>
+		function myfunc(){
+
+			if(confirm("Do you want to submit?")){
+
+				document.getElementById("myform").submit();
+			}
+		}
+	</script>
+{% endblock %}

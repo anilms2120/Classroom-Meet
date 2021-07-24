@@ -1,0 +1,31 @@
+{% extends 'main/header.html' %}
+{% block content%}
+	<div class="card" style="margin-top: 50px; width:30%; margin-right: auto; margin-left: auto;">
+			<h4  class="card-header text-center">Class</h4>
+			<div class="card-body">
+
+				<form  id="myform" method='POST' action="">
+				
+						{% csrf_token %}
+							
+							<label for='title' style="font-weight: bold;" >Title</label>
+			    			<input type="text" name='name_form' class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter Title">
+			    			
+							<!-- <br>
+							<label for="description"><h5>Description</h5></label> -->
+							<!-- <li> <input id="description" type="text" name='description_form'></li> -->
+							
+						
+				</form>
+				<label for='description' style="font-weight: bold;margin-top: 20px;" >Description</label>
+				<textarea id="description" class="form-control" style="height: 80px;" name="description_form" form="myform" placeholder="Description"></textarea>
+				<br>
+				<input type="submit" form = "myform" style=" background-color: #696969; font-weight: bold; border:none; ;margin-top: 20px; margin-left: 145px;" class ="btn btn-info" value="create">
+									   
+			</div>
+	</div>
+{% endblock%}
+
+
+		          
+

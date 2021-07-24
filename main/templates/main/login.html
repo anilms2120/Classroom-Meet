@@ -1,0 +1,29 @@
+{% extends 'main/header.html'%}
+{% block content%}
+	
+	<div class="card" style="width:500px; margin-left: auto;margin-right: auto; margin-top: 30px;">
+		<h3 class="card-header text-center">Login</h3>
+		<div class="card-body" >
+
+			
+			<form  method='POST' action="" id="form">
+				{% csrf_token %}
+			  <div class="form-group">
+			  	<label for='username' style="font-weight: bold;" >Username</label>
+			    <input type="text" name='username_form' class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter name" >
+			  </div>
+			  <div class="form-group">
+			  	<label for="password" style="font-weight: bold; margin-right: 10px;"  >Password</label>
+			    <input type="password" name='password_form' class="form-control" id="password" placeholder="Password">
+			  </div>
+			  <p class="card-text">Don't have an account?<a href="{% url 'start' %}">Sign Up</a></p>
+				<br>
+						{% for message in messages %}
+							{{ message }}
+						{% endfor %}
+				<button  style=" background-color: #696969;border:none; width:30%; margin-left: 150px; font-weight: bold;" type="submit" class="btn btn-primary" >Login</button>
+			</form>
+			
+		</div>
+	</div>
+{% endblock %}

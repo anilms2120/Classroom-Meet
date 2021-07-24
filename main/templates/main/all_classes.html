@@ -1,0 +1,36 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+
+	<div class="container">
+	  <div class="row">
+	  	{% for i in data %}
+	  		<div class="col-sm-3" style="margin:10px;">
+			    <div class="card" style="width: 17rem; height: 13rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">{{ i.name }}</h5>
+				    <h6 class="card-subtitle mb-2 text-muted">{{ i.teacher.name }}</h6>
+				    <p class="card-text">{{ i.description}}</p>
+				  </div>
+				  <div id='outer' style="width:100%; text-align: center; margin-bottom: 20px;">
+				  
+				  	{% if i in student_classes %}
+					  	<div class="inner" style="display: inline-block;"><a id='path' href="{% url 'remove_class' i.id%}"><button class="btn btn-sm btn-danger" style="font-weight:bold;" id="withdraw-{{i.id}}" onclick='myfunc(this.id)'>
+					  		Withdraw
+					  	</button></a></div>
+				  
+				 	{% else %}
+					  	<div class="inner" style="display: inline-block;"><a  id='path-{{ i.id }}' href="{% url 'add_class' i.id%}"><button  class="btn btn-sm btn-info" style="background-color:#696969; font-weight: bold; width: 70px;" id="join-{{i.id}}" onclick="myfunc(this.id)">
+						  		Join
+						 </button></a></div>
+				 	{% endif %}
+				  </div>
+				</div>
+			</div>
+	  	{% endfor%}
+	  </div>
+	</div>
+	<script>
+		
+	</script>
+{% endblock %}
